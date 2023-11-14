@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:music_app/screens/song_detail_screen.dart';
 
-import 'home_page.dart';
+import 'screens/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const HomePage(),
+      home: const SongDetailScreen(),
     );
   }
 }

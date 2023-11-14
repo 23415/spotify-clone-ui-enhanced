@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class RelaxedPlayList extends StatelessWidget {
-  const RelaxedPlayList({super.key});
+class HomePageContentBuilder extends StatelessWidget {
+  const HomePageContentBuilder({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -49,6 +49,6 @@ class RelaxedPlayList extends StatelessWidget {
           scrollDirection: Axis.horizontal,
         ),
       ),
-    );
+    );;
   }
 }

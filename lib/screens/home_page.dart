@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:music_app/widgets/bottom_navigation_bar.dart';
+import 'package:music_app/widgets/home_page_content_bld.dart';
 import 'package:music_app/widgets/relaxed_playlist.dart';
 import 'package:music_app/widgets/search_bar.dart';
 import 'package:music_app/widgets/your_favorite.dart';
@@ -149,6 +150,13 @@ class _HomePageState extends State<HomePage> {
                       child: Text('RELAXED PLAYLIST',style: TextStyle(fontSize: 18,color: Colors.white),)),
                 ),
                 const RelaxedPlayList(),
+                const Padding(
+                  padding: EdgeInsets.only(left: 20,top: 8,bottom: 10),
+                  child: Align(
+                      alignment: Alignment.topLeft,
+                      child: Text("INDIA'S BEST",style: TextStyle(fontSize: 18,color: Colors.white),)),
+                ),
+                const HomePageContentBuilder(),
               ],
             ),
           ),
