@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_app/screens/login_page.dart';
 import 'package:music_app/screens/song_detail_screen.dart';
 
 import 'screens/home_page.dart';
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const SongDetailScreen(),
+      home: const LoginPage(),
     );
   }
 }

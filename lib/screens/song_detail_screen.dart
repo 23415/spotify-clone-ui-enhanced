@@ -38,7 +38,8 @@ class _SongDetailScreenState extends State<SongDetailScreen> {
         ],
       ),
       body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+        physics: const BouncingScrollPhysics(
+            parent: AlwaysScrollableScrollPhysics()),
         child: Column(
           children: [
             Padding(
@@ -51,7 +52,9 @@ class _SongDetailScreenState extends State<SongDetailScreen> {
                     fit: BoxFit.cover),
               ),
             ),
-            SizedBox(height: 35,),
+            SizedBox(
+              height: 35,
+            ),
             Row(
               children: [
                 const Padding(
@@ -81,9 +84,9 @@ class _SongDetailScreenState extends State<SongDetailScreen> {
               ],
             ),
             const Padding(
-              padding: const EdgeInsets.only(left: 35,top: 20,right: 35),
+              padding: const EdgeInsets.only(left: 35, top: 20, right: 35),
               child: ProgressBar(
-                  progress: Duration(minutes: 1),
+                progress: Duration(minutes: 1),
                 total: Duration(minutes: 3),
                 progressBarColor: Colors.white,
                 baseBarColor: Colors.black12,
@@ -96,51 +99,132 @@ class _SongDetailScreenState extends State<SongDetailScreen> {
             Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 25,top: 10),
-                  child: IconButton(onPressed: (){}, icon: const Icon(Icons.shuffle_sharp,size: 30,color: Colors.white,),),
+                  padding: const EdgeInsets.only(left: 25, top: 10),
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.shuffle_sharp,
+                      size: 30,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 25,top: 10,right: 8),
-                  child: IconButton(onPressed: (){}, icon: const Icon(Icons.arrow_back_ios,size: 30,color: Colors.white,),),
+                  padding: const EdgeInsets.only(left: 25, top: 10, right: 8),
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.arrow_back_ios,
+                      size: 30,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 20,top: 0,right: 8),
-                  child: IconButton(onPressed: (){}, icon: const Icon(Icons.play_circle_filled,size: 40,color: Colors.white,),),
+                  padding: const EdgeInsets.only(left: 20, top: 0, right: 8),
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.play_circle_filled,
+                      size: 40,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 25,top: 10,right: 8),
-                  child: IconButton(onPressed: (){}, icon: const Icon(Icons.arrow_forward_ios,size: 30,color: Colors.white,),),
+                  padding: const EdgeInsets.only(left: 25, top: 10, right: 8),
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.arrow_forward_ios,
+                      size: 30,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 25,top: 10,right: 0),
-                  child: IconButton(onPressed: (){}, icon: const Icon(Icons.repeat_sharp,size: 30,color: Colors.white,),),
+                  padding: const EdgeInsets.only(left: 25, top: 10, right: 0),
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.repeat_sharp,
+                      size: 30,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
               ],
             ),
             Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 25,top: 10,right: 190),
-                  child: IconButton(onPressed: (){}, icon: const Icon(Icons.speaker_group_outlined,size: 22,color: Colors.white,),),
+                  padding: const EdgeInsets.only(left: 25, top: 10, right: 190),
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.speaker_group_outlined,
+                      size: 22,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 25,top: 10,right: 0),
-                  child: IconButton(onPressed: (){}, icon: const Icon(Icons.share,size: 22,color: Colors.white,),),
+                  padding: const EdgeInsets.only(left: 25, top: 10, right: 0),
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.share,
+                      size: 22,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 6,top: 10,),
-                  child: IconButton(onPressed: (){}, icon: const Icon(Icons.view_headline_sharp,size: 22,color: Colors.white,),),
+                  padding: const EdgeInsets.only(
+                    left: 6,
+                    top: 10,
+                  ),
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.view_headline_sharp,
+                      size: 22,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
               ],
             ),
-            SizedBox(height: 18,),
+            SizedBox(
+              height: 18,
+            ),
             Container(
               width: 350,
               height: 300,
-              color: Colors.red,
-              child: Stack(
+              decoration:
+                  BoxDecoration(borderRadius: BorderRadius.circular(10)),
+              clipBehavior: Clip.hardEdge,
+              child: const Stack(
                 children: [
-
+                  Image(
+                    image: AssetImage('assets/images/playlist_img.jpg'),
+                    fit: BoxFit.cover,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 8.0, top: 15),
+                    child: Positioned(
+                      left: 0,
+                      right: 0,
+                      top: 0,
+                      child: Text(
+                        'About the artist',
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             )
