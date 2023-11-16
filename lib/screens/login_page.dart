@@ -56,6 +56,7 @@ class LoginPage extends StatelessWidget {
               onPressed: onButtonClicked,
               child: Row(
                 children: [
+                  SizedBox(width: 8,),
                   Icon(Icons.phone_android_rounded),
                   SizedBox(width: 85,),
                   Center(child: Text('continue with phone number')),
@@ -79,13 +80,6 @@ class LoginPage extends StatelessWidget {
             clipBehavior: Clip.hardEdge,
             child: ElevatedButton(
               onPressed: onButtonClicked,
-              child: Row(
-                children: [
-                  Icon(Icons.apple),
-                  SizedBox(width: 85,),
-                  Center(child: Text('continue with google')),
-                ],
-              ),
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color.fromRGBO(40, 40, 40, 0.8),
                 shape: StadiumBorder(),
@@ -93,6 +87,17 @@ class LoginPage extends StatelessWidget {
                   width: 2,
                   color: Colors.white24,
                 ),
+              ),
+              child: Row(
+                children: [
+                  SizedBox(width: 2,),
+                  Image.network(
+                      'http://pngimg.com/uploads/google/google_PNG19635.png',
+                      fit:BoxFit.cover
+                  ),
+                  SizedBox(width: 80,),
+                  Center(child: Text('continue with google')),
+                ],
               ),
             ),
           ),
@@ -106,6 +111,7 @@ class LoginPage extends StatelessWidget {
               onPressed: onButtonClicked,
               child: Row(
                 children: [
+                  SizedBox(width: 8,),
                   Icon(Icons.facebook),
                   SizedBox(width: 85,),
                   Center(child: Text('continue with facebook')),
@@ -131,6 +137,7 @@ class LoginPage extends StatelessWidget {
               onPressed: onButtonClicked,
               child: Row(
                 children: [
+                  SizedBox(width: 8,),
                   Icon(Icons.apple),
                   SizedBox(width: 85,),
                   Center(child: Text('continue with apple')),

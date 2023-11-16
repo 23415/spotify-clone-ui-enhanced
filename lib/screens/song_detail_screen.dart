@@ -44,17 +44,17 @@ class _SongDetailScreenState extends State<SongDetailScreen> {
             parent: AlwaysScrollableScrollPhysics()),
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 35, right: 35, top: 85),
-              child: Container(
+            const Padding(
+              padding: EdgeInsets.only(left: 35, right: 35, top: 85),
+              child: SizedBox(
                 width: 350,
                 height: 300,
-                child: const Image(
+                child: Image(
                     image: AssetImage('assets/images/playlist_img.jpg'),
                     fit: BoxFit.cover),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 35,
             ),
             Row(
@@ -86,7 +86,7 @@ class _SongDetailScreenState extends State<SongDetailScreen> {
               ],
             ),
             const Padding(
-              padding: const EdgeInsets.only(left: 35, top: 20, right: 35),
+              padding: EdgeInsets.only(left: 35, top: 20, right: 35),
               child: ProgressBar(
                 progress: Duration(minutes: 1),
                 total: Duration(minutes: 3),
@@ -197,7 +197,7 @@ class _SongDetailScreenState extends State<SongDetailScreen> {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 18,
             ),
             Container(

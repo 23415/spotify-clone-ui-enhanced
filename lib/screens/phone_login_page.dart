@@ -91,7 +91,7 @@ class _PhoneLoginPageState extends State<PhoneLoginPage> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => OtpPage(
-                      phoneNumber: phoneController.toString(),
+                      phoneNumber: phoneController.text,
                     ),
                   ),
                 );

@@ -37,7 +37,6 @@ class _OtpPageState extends State<OtpPage> {
         color: Color.fromRGBO(234, 239, 243, 1),
       ),
     );
-
     return Scaffold(
       backgroundColor: const Color.fromRGBO(40, 40, 40, 0.8),
       body: Column(
