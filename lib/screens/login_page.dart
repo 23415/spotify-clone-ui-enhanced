@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:music_app/screens/home_page.dart';
+import 'package:music_app/screens/phone_login_page.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -7,8 +8,8 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     void onButtonClicked(){
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){
-        return HomePage();
+      Navigator.push(context, MaterialPageRoute(builder: (context){
+        return PhoneLoginPage();
       }));
     }
     return Scaffold(

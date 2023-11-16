@@ -18,7 +18,9 @@ class _SongDetailScreenState extends State<SongDetailScreen> {
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_downward_sharp),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
         title: const Column(
           children: [

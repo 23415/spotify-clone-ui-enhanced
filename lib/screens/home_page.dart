@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_app/screens/song_detail_screen.dart';
 
 import 'package:music_app/widgets/bottom_navigation_bar.dart';
 import 'package:music_app/widgets/home_page_content_bld.dart';
@@ -141,7 +142,11 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-                const Yourfavorite(),
+                GestureDetector(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => SongDetailScreen()));
+                    },
+                    child: const Yourfavorite()),
                 // SizedBox(height: 175,),
                 const Padding(
                   padding: EdgeInsets.only(left: 20,top: 8,bottom: 10),
@@ -149,14 +154,22 @@ class _HomePageState extends State<HomePage> {
                       alignment: Alignment.topLeft,
                       child: Text('RELAXED PLAYLIST',style: TextStyle(fontSize: 18,color: Colors.white),)),
                 ),
-                const RelaxedPlayList(),
+                GestureDetector(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => SongDetailScreen()));
+                    },
+                    child: const RelaxedPlayList()),
                 const Padding(
                   padding: EdgeInsets.only(left: 20,top: 8,bottom: 10),
                   child: Align(
                       alignment: Alignment.topLeft,
                       child: Text("INDIA'S BEST",style: TextStyle(fontSize: 18,color: Colors.white),)),
                 ),
-                const HomePageContentBuilder(),
+                GestureDetector(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => SongDetailScreen()));
+                    },
+                    child: const HomePageContentBuilder()),
               ],
             ),
           ),

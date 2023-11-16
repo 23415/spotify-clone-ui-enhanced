@@ -37,6 +37,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   transparent_image: ^2.0.1
   audio_video_progress_bar: ^2.0.1
+  intl_phone_field: ^3.2.0
+  pinput: ^3.0.1
 
 dev_dependencies:
   flutter_test:
