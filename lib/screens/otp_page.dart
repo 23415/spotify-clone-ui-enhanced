@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:music_app/screens/home_page.dart';
 import 'package:pinput/pinput.dart';
 
+import '../manager/ApiManager.dart';
+import '../manager/model/Artist.dart';
+
 class OtpPage extends StatefulWidget {
   const OtpPage({super.key, required this.phoneNumber});
 
@@ -14,6 +17,9 @@ class OtpPage extends StatefulWidget {
 class _OtpPageState extends State<OtpPage> {
   @override
   Widget build(BuildContext context) {
+
+    ApiManager apiManager = ApiManager();
+
     final defaultPinTheme = PinTheme(
       width: 56,
       height: 56,
@@ -71,7 +77,9 @@ class _OtpPageState extends State<OtpPage> {
             ),
             clipBehavior: Clip.hardEdge,
             child: ElevatedButton(onPressed: () {
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()),);
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage(
+
+              )),);
             },
               child: Text('Next'),
               style: OutlinedButton.styleFrom(

@@ -1,20 +1,29 @@
+
 import 'package:flutter/material.dart';
+import 'package:music_app/manager/ApiManager.dart';
 import 'package:music_app/screens/song_detail_screen.dart';
+
 
 import 'package:music_app/widgets/bottom_navigation_bar.dart';
 import 'package:music_app/widgets/home_page_content_bld.dart';
 import 'package:music_app/widgets/relaxed_playlist.dart';
 import 'package:music_app/widgets/search_bar.dart';
 import 'package:music_app/widgets/your_favorite.dart';
+import 'package:skeletonizer/skeletonizer.dart';
+
+import '../manager/model/Artist.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,12 +47,14 @@ class _HomePageState extends State<HomePage> {
                           borderRadius: BorderRadius.circular(30),
                         ),
                         child: const Center(
-                            child: Text(
-                              'Your Top 2023',
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold),
+                            child: InkWell(
+                              child: Text(
+                                'Your Top 2023',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold),
+                              ),
                             )),
                       ),
                     ),
@@ -146,7 +157,7 @@ class _HomePageState extends State<HomePage> {
                     onTap: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context) => SongDetailScreen()));
                     },
-                    child: const Yourfavorite()),
+                    child:  Yourfavorite()),
                 // SizedBox(height: 175,),
                 const Padding(
                   padding: EdgeInsets.only(left: 20,top: 8,bottom: 10),
