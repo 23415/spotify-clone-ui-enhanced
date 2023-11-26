@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:skeletonizer/skeletonizer.dart';
 
 import 'package:music_app/screens/error_page.dart';
 
@@ -22,9 +21,9 @@ class _YourfavoriteState extends State<Yourfavorite> {
       future: apiManager.fetchArtists(),
       builder: (context,snapshot){
         if(snapshot.connectionState==ConnectionState.waiting){
-          return ErrorPage();
+          return CircularProgressIndicator();
         }else if(snapshot.hasError || !snapshot.hasData || snapshot.data!.isEmpty){
-          return const ErrorPage();
+          return const CircularProgressIndicator();
         }else{
           return Padding(
             padding: const EdgeInsets.only(left: 20,top: 16,right: 20,bottom: 10),

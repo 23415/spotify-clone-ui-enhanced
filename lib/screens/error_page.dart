@@ -5,10 +5,10 @@ class ErrorPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor:  Color.fromRGBO(40, 40, 40, 0.8),
+    return  const Scaffold(
+      backgroundColor: Color.fromRGBO(40, 40, 40, 0.8),
       body: Center(
-        child: Text('Uh ho Something is Wrong',style: TextStyle(fontSize: 20),),
+        child: Text('Uh ho Something is Wrong',style: TextStyle(fontSize: 12),),
       ),
     );
   }

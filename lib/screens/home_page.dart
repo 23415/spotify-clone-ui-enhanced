@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:music_app/manager/ApiManager.dart';
+import 'package:music_app/screens/music_list.dart';
 import 'package:music_app/screens/song_detail_screen.dart';
 
 
@@ -9,9 +10,9 @@ import 'package:music_app/widgets/home_page_content_bld.dart';
 import 'package:music_app/widgets/relaxed_playlist.dart';
 import 'package:music_app/widgets/search_bar.dart';
 import 'package:music_app/widgets/your_favorite.dart';
-import 'package:skeletonizer/skeletonizer.dart';
 
-import '../manager/model/Artist.dart';
+import '../manager/model/Song.dart';
+
 
 
 class HomePage extends StatefulWidget {
@@ -24,166 +25,193 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
+  ApiManager apiManager = ApiManager();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       backgroundColor: const Color.fromRGBO(40, 40, 40, 0.8),
       body:
-          SingleChildScrollView(
-            physics: const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
-            child: Column(
+      SingleChildScrollView(
+        physics: BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+        child: Column(
+          children: [
+            const SearchBarWid(),
+            Row(
               children: [
-                const SearchBarWid(),
-                Row(
-                  children: [
-                    //yellow your top 2023
-                    Padding(
-                      padding: const EdgeInsets.only(left: 25, right: 25, top: 25),
-                      child: Container(
-                        width: 200,
-                        height: 65,
-                        decoration: BoxDecoration(
-                          color: const Color.fromRGBO(255, 231, 19, 1.0),
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        child: const Center(
-                            child: InkWell(
-                              child: Text(
-                                'Your Top 2023',
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            )),
+                //yellow your top 2023
+                Padding(
+                  padding: const EdgeInsets.only(left: 25, right: 25, top: 25),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>SongListPage(genre: 'genre2',)
+                      ));
+                    },
+                    child: Container(
+                      width: 200,
+                      height: 65,
+                      decoration: BoxDecoration(
+                        color: const Color.fromRGBO(255, 231, 19, 1.0),
+                        borderRadius: BorderRadius.circular(30),
                       ),
-                    ),
-                    //black rock
-                    Padding(
-                      padding: const EdgeInsets.only(left: 0, right: 25, top: 25),
-                      child: Container(
-                        width: 130,
-                        height: 65,
-                        decoration: BoxDecoration(
-                          color: Colors.black87,
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        child: const Center(
-                            child: Text(
-                              'ROCK',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold),
-                            )),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    //indie
-                    Padding(
-                      padding: const EdgeInsets.only(left: 25, right: 8, top: 25),
-                      child: Container(
-                        width: 135,
-                        height: 65,
-                        decoration: BoxDecoration(
-                          color: Colors.black87,
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        child: const Center(
-                            child: Text(
-                              'INDIE',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold),
-                            )),
-                      ),
-                    ),
-                    //metal
-                    Padding(
-                      padding: const EdgeInsets.only(left: 0, right: 8, top: 25),
-                      child: Container(
-                        width: 140,
-                        height: 65,
-                        decoration: BoxDecoration(
-                          color: Colors.black87,
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        child: const Center(
-                            child: Text(
-                              'METAL',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold),
-                            )),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 0, right: 10, top: 25),
-                      child: Container(
-                        width: 65,
-                        height: 65,
-                        decoration: BoxDecoration(
-                          color: Colors.black87,
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        child: const Center(
-                            child: Icon(
-                              Icons.arrow_forward_sharp,
-                              color: Colors.white,
-                            )),
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                const Align(
-                  alignment: Alignment.topLeft,
-                  child: Padding(
-                    padding: EdgeInsets.only(left: 20, top: 15),
-                    child: Text(
-                      "YOUR FAVORITES",
-                      style: TextStyle(color: Colors.white, fontSize: 18),
+                      child: const Center(
+                          child: Text(
+                            'Your Top 2023',
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          )),
                     ),
                   ),
                 ),
-                GestureDetector(
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => SongDetailScreen()));
+                //black rock
+                Padding(
+                  padding: const EdgeInsets.only(left: 0, right: 25, top: 25),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>SongListPage(genre: 'genre2',)
+                      ));
                     },
-                    child:  Yourfavorite()),
-                // SizedBox(height: 175,),
-                const Padding(
-                  padding: EdgeInsets.only(left: 20,top: 8,bottom: 10),
-                  child: Align(
-                      alignment: Alignment.topLeft,
-                      child: Text('RELAXED PLAYLIST',style: TextStyle(fontSize: 18,color: Colors.white),)),
+                    child: Container(
+                      width: 130,
+                      height: 65,
+                      decoration: BoxDecoration(
+                        color: Colors.black87,
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: const Center(
+                          child: Text(
+                            'ROCK',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          )),
+                    ),
+                  ),
                 ),
-                GestureDetector(
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => SongDetailScreen()));
-                    },
-                    child: const RelaxedPlayList()),
-                const Padding(
-                  padding: EdgeInsets.only(left: 20,top: 8,bottom: 10),
-                  child: Align(
-                      alignment: Alignment.topLeft,
-                      child: Text("INDIA'S BEST",style: TextStyle(fontSize: 18,color: Colors.white),)),
-                ),
-                GestureDetector(
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => SongDetailScreen()));
-                    },
-                    child: const HomePageContentBuilder()),
               ],
             ),
-          ),
+            Row(
+              children: [
+                //indie
+                Padding(
+                  padding: const EdgeInsets.only(left: 25, right: 8, top: 25),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>SongListPage(genre: 'genre2',)
+                      ));
+                    },
+                    child: Container(
+                      width: 135,
+                      height: 65,
+                      decoration: BoxDecoration(
+                        color: Colors.black87,
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: const Center(
+                          child: Text(
+                            'INDIE',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          )),
+                    ),
+                  ),
+                ),
+                //metal
+                Padding(
+                  padding: const EdgeInsets.only(left: 0, right: 8, top: 25),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>SongListPage(genre: 'genre2',)
+                      ));
+                    },
+                    child: Container(
+                      width: 140,
+                      height: 65,
+                      decoration: BoxDecoration(
+                        color: Colors.black87,
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: const Center(
+                          child: Text(
+                            'METAL',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          )),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 0, right: 10, top: 25),
+                  child: Container(
+                    width: 65,
+                    height: 65,
+                    decoration: BoxDecoration(
+                      color: Colors.black87,
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    child: const Center(
+                        child: Icon(
+                          Icons.arrow_forward_sharp,
+                          color: Colors.white,
+                        )),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            const Align(
+              alignment: Alignment.topLeft,
+              child: Padding(
+                padding: EdgeInsets.only(left: 20, top: 15),
+                child: Text(
+                  "YOUR FAVORITES",
+                  style: TextStyle(color: Colors.white, fontSize: 18),
+                ),
+              ),
+            ),
+            GestureDetector(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => SongDetailScreen()));
+                },
+                child: Yourfavorite()),
+            // SizedBox(height: 175,),
+            const Padding(
+              padding: EdgeInsets.only(left: 20,top: 8,bottom: 10),
+              child: Align(
+                  alignment: Alignment.topLeft,
+                  child: Text('RELAXED PLAYLIST',style: TextStyle(fontSize: 18,color: Colors.white),)),
+            ),
+            GestureDetector(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SongListPage(genre: 'genre2',)
+                  ));
+                },
+                child: const RelaxedPlayList()),
+            const Padding(
+              padding: EdgeInsets.only(left: 20,top: 8,bottom: 10),
+              child: Align(
+                  alignment: Alignment.topLeft,
+                  child: Text("INDIA'S BEST",style: TextStyle(fontSize: 18,color: Colors.white),)),
+            ),
+            GestureDetector(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SongListPage(genre: 'genre2',)
+                  ));
+                },
+                child: const HomePageContentBuilder()),
+          ],
+        ),
+      ),
       bottomNavigationBar: const BottomNavigation(),
     );
   }
